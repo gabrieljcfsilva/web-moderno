@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser')
 const express = require('express')
+const multer = require('multer')
 
 const app = express()
 
@@ -9,6 +10,28 @@ app.use(bodyParser.json())
 
 app.get('/teste', (req, res) => {
     res.send('OK')
+})
+
+//função recebe um objeto para personalizar a pasta onde iremos salvar os arquivos e tbm para personalizar o nome do arquivo que sera salvo
+const storage = multer.diskStorage({
+    destination(req, file, callback) {
+        callback(null, './upload')
+    },
+    filename(req, file, callback) {
+        callback(null, `${Date.now()}_${file.originalname}`)
+    }
+})
+
+const upload = multer({ storage}).single('arquivo')
+
+app.post('/upload', (req, res) => {
+    upload(req, res, err => {
+        if (err) {
+            return res.end('Ocorreu um erro')
+        }
+
+        res.end('concluido com sucesso.')
+    })
 })
 
 app.listen(3000, () => console.log('Executando...'))
