@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <div>Elemento2</div>
+    <div>Elemento3</div>
+    <script>
+        const items = document.querySelectorAll('div')
+
+        function moveItens(element) {
+            element.onmousemove = event => {
+                const itemElement = event.target
+
+                itemElement.style.cursor = 'move'
+                if (event.buttons) { //informa se o botão do mouse esta segurado
+                    itemElement.style.top = `${event.clientY - (itemElement.clientHeight / 2)}px`
+                    itemElement.style.left = `${event.clientX - (itemElement.clientWidth / 2)}px`
+                }
+            }
+        }
+
+        items.forEach(item => {
+            item.style.position = 'absolute'
+            moveItens(item)
+        })
+
+    </script>
+</body>

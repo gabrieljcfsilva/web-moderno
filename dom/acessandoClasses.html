@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+        const classes = document.querySelector('div').classList
+        classes.add('destaque')
+        classes.remove('destaque')
+        classes.toggle('destaque')
+        console.log(classes.contains('destaque')) //verifica se a classe existe
+        console.log(classes.length) //retorna a quantidade de classes existentes
+        classes.toggle('destaque')
+        console.log(classes.length) //retorna a quantidade de classes existentes
+        
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length) //retorna a quantidade de classes existentes
+
+        for(let c of classes) { //possui um interator podendo usar um laço for
+            console.log(c)
+        }
+
+        classes.forEach(c => console.log(c))
+
+    </script>
+</body>
+
+</html>

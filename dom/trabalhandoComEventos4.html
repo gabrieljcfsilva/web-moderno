@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #04</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
+        <button wm-submit>Pesquisar</button>
+    </form>
+    <script>
+        // const submit = document.querySelector('[wm-submit]')
+        // submit.onclick = event => {
+        //     event.preventDefault()
+
+        //     const form = event.target.parentNode
+        //     const formData = new FormData(form) //os dados do formulário se encontra em FormData que é um objeto ao instancialo precisamos passar o formulario que queremos trabalhar
+        //     formData.append('ajax', true) //conseguimos inserir informações
+        //     console.log(formData.get('q')) //pegando informações do formulário
+        //     console.log(formData.has('hl')) //verificando se existe o campo no form retorna true  ou false
+
+        //     //formData possui um interator associado então tbm podemos usar o for
+        //     for (let dado of formData) {
+        //         console.log(dado)
+        //     }
+
+        // }
+        const form = document.forms[0]
+        form.onsubmit = event => {
+            event.preventDefault()
+
+            const form = event.target
+            const formData = new FormData(form) //os dados do formulário se encontra em FormData que é um objeto ao instancialo precisamos passar o formulario que queremos trabalhar
+            formData.append('ajax', true) //conseguimos inserir informações
+            console.log(formData.get('q')) //pegando informações do formulário
+            console.log(formData.has('hl')) //verificando se existe o campo no form retorna true  ou false
+
+            //formData possui um interator associado então tbm podemos usar o for
+            for (let dado of formData) {
+                console.log(dado)
+            }
+        }
+    </script>
+</body>
