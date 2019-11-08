@@ -29,6 +29,39 @@
     </form>
     <div id="resultado"></div>
     <script>
-        // ...
+        document.usuarioForm.onsubmit = async event => {
+            event.preventDefault()
+
+            const form = event.target
+            const data = new FormData(form)
+            data.append('ajax', true)
+
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data)
+            }
+
+            const resultado = document.getElementById('resultado')
+
+            //USANDO PROMISES
+            // fetch(form.action, options)
+            //     .then(resp => resp.json())
+            //     .then(json => {
+            //         resultado.innerHTML = JSON.stringify(json)
+            //     })
+            //     .catch(e => {
+            //         resultado.innerHTML = e
+            //     })
+
+            //USANDO PROMISES
+            try {
+                const resp = await fetch(form.action, options)
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json)
+
+            } catch (error) {
+                resultado.innerHTML = error
+            }
+        }
     </script>
 </body>
