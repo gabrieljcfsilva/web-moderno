@@ -5,8 +5,7 @@ const babel = require('gulp-babel')
 
 gulp.task('default', () => {
     return gulp.src('src/**/*.js')
-        .pipe(babel({
-            minified : true, //também minifica o arquivo
+        .pipe(babel({ //transpilando codigos ES6+ para versões anteriores            minified : true, //também minifica o arquivo
             comments : false,
             presets: ['env']
         }))
