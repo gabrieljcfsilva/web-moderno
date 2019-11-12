@@ -34,6 +34,9 @@ module.exports = {
                 // 'style-loader', //Adiciona css a dom injetando a tag <style>
                 'sass-loader',
             ]
+        }, {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader']
         }]
     }
 }
