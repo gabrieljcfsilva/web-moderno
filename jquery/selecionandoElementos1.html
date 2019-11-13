@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Selecionando Elementos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        .negrito {
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Selecionando Elementos #01</h1>
+    <div>
+        <p>Parágrafo
+            <span class='negrito'>dentro span</span>
+        </p>
+    </div>
+    <div>
+        <ul id='feira'>
+            <li>Arroz</li>
+            <li wm-obrigatorio>Feijão</li>
+            <li class='opcional'>Carne</li>
+            <li class='opcional'>Ovo</li>
+        </ul>
+    </div>
+    <form>
+        <input type='text' name='texto'>
+        <input type='password' name='senha'>
+        <input type='checkbox' name='check1'>
+        <input type='radio' name='radio1'>
+        <input type='file' name='arquivo'>
+    </form>
+
+    <script>
+        $('#feira').addClass('destaque').removeClass('destaque') //adciona e remove classe
+        $('li').addClass('destaque')
+        $('[wm-obrigatorio]').removeClass('destaque')
+        $('li.opcional').removeClass('destaque')
+        $('div p span').addClass('destaque')
+
+        //Exclusivos jQuery
+        $('li:first').css('border', 'solid 3px yellow') //selecionando primeiro elemento
+        $('li:odd').css('border', 'solid 10px orange') //seleciona os impares
+        $('li:gt(1)').css('border', 'solid 10px white')//seleciona o maior elemento após o indice passado
+        $('li:not(:last)').css('border', 'none') //seleciona o que não é o ultimo
+        $('li:contains("r")').css('background-color', 'black') //verifica se contem o item passado na função
+
+        //formulario
+        $('form *').hide()
+        $('form :text').show(500)//seleciona o elemento do tipo texto
+        $('form :password').show(500)//seleciona o elemento do tipo password
+        $('form :checkbox').show(500)//seleciona o elemento do tipo checkbox
+        $('form :radio').show(500)//seleciona o elemento do tipo radio
+        $('form :file').show(500)//seleciona o elemento do tipo file
+        </script>
+</body>
