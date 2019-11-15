@@ -19,7 +19,26 @@
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
         ]
-        
-        // ...
+
+        // $(document).ready(function() {
+
+        // })
+
+        $(function() {
+            function createLinhas(pessoa) {
+                const tdNome = $('<td>').html(pessoa.nome)
+                const tdNotas = $('<td>').html(pessoa.nota)
+    
+                return $('<tr>').append(tdNome, tdNotas)
+                // return $('<tr>').append([tdNotas, tdNotas])
+                // return $('<tr>').append(tdNome).append(tdNotas)
+            }
+    
+            const tr = pessoas.map(createLinhas)
+            const table = $('<table>').append(tr)
+            $('#conteudo').append(table)
+        })
+
+
     </script>
 </body>
