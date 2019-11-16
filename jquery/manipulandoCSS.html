@@ -12,9 +12,23 @@
     <h1>Manipulando CSS</h1>
     <div id='div1'>1</div>
     <div id='div2'>2</div>
-    <div id='div3'>3</div>
     <div id='resultado'></div>
     <script>
-        // ...
+        const font = $('#div1').css('font-family') //pega qual a fonte usada
+        $('#resultado').append(font)
+
+        $('#div1').css('font-size', '8em') //modificando css
+        $('#div1').css({ 'font-size': '3.5em', 'color': 'yellow' }) //pode mudar varias propriedades se passarmos um objeto
+        $('#div1').css('font-size', () => `${2 * 2}em`) //pode também passar uma callback para fazer alguma operação
+
+        $('#div2').addClass('destaque') //adiciona uma classe
+
+        const temClasse = $('#div2').hasClass('destaque') //verifica se tem a classe retorna true ou false
+        $('#resultado').append(`<br>Tem class ${temClasse}`)
+
+        $('#div2').removeClass('destaque') //remove a class passada por parametro
+
+        $('#div2').toggleClass('destaque') //a função toggle adiciona ou remove a clase, faz alternancia
+        $('#div2').toggleClass('destaque')
     </script>
 </body>
