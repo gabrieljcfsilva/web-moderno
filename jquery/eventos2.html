@@ -21,6 +21,25 @@
     <input type="text" placeholder="Digite e Selecione">
     <div id="resultado2">?</div>
     <script>
-        // ...
+        const alterarDestaque = () => $('#div1').toggleClass('destaque')
+        // $('#div1').on('mouseenter mouseleave', alterarDestaque) //pode receber dois eventos
+        $('#div1').hover(alterarDestaque, alterarDestaque) //pode receber duas função
+
+        $('#div1').one('mouseenter', () => alert('Aviso Importante, Obrigado!')) //disparado apenas uma vez
+        $('#div1').dblclick(event => $('#div1').fadeOut(1000).fadeIn(1000)) //disparado ao receber um duplo clique
+
+        $(window).resize(function (e) {
+            const a = $(window).height()
+            const l = $(window).width()
+
+            $('#resultado1').html(`Altura: ${a} Largura: ${l}`)
+        })
+
+        $(':input').select(e => {
+            const inicio = e.target.selectionStart
+            const fim = e.target.selectionEnd
+            $(`#resultado2`).html(e.target.value.substring(inicio, fim))
+            alert('Não pode selecionar e copiar senha')
+        })
     </script>
 </body>
