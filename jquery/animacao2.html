@@ -28,6 +28,58 @@
     <div>Animar!</div>
 
     <script>
-        // ...
+        //trabalhando com promises
+        function alterarLargura(elemento, valor, duracao) {
+            return new Promise(resolve => {
+                resolve($(elemento).animate({ width: `+=${valor}` }, duracao))
+            })
+        }
+
+        function moverDiagonal(elemento, valor, duracao) {
+            return new Promise(resolve => {
+                resolve($(elemento).animate({ top: `+=${valor}`, left: `+=${valor}` }, duracao))
+            })
+        }
+
+        function girar(elemento, valor, duracao) {
+            return new Promise(resolve => {
+                $(elemento).animate({ transform: `+=${valor}` }, {
+                    step: function (valor) {
+                        $(this).css('transform', `rotate(${valor}deg)`)
+                    },
+                    duration: duracao
+                }, 'linear')
+            })
+        }
+
+        alterarLargura('div', 300, 100)
+            .then(alterarLargura('div', -300, 'slow'))
+            .then(moverDiagonal('div', 300, 600))
+            .then(girar('div', 3300, 3000))
+
+        //trabalhando com callback
+        // function alterarLargura(valor, duracao, callback) {
+        //     $('div').animate({ width: `+=${valor}` }, duracao
+        //         , callback)
+        // }
+        // function moverDiagonal(valor, duracao, callback) {
+        //     $('div').animate({ top: `+=${valor}`, left: `+=${valor}` }
+        //         , duracao, callback)
+        // }
+        // function girar(valor, duracao, callback) {
+        //     $('div').animate({ transform: `+=${valor}` }, {
+        //         step: function (valor) {
+        //             $(this).css('transform', `rotate(${valor}deg)`)
+        //         },
+        //         duration: duracao
+        //     }, 'linear', callback)
+        // }
+        // alterarLargura(300, 100, () => {
+        //     alterarLargura(-300, 'slow', () => {
+        //         moverDiagonal(300, 600, () => {
+        //             girar(3300, 3000)
+        //         })
+        //     })
+        // })
     </script>
 </body>
