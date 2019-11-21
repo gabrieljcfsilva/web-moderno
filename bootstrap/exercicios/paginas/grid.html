@@ -24,31 +24,94 @@
     <hr>
 
     <!-- Grid Básica -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col bg-primary">1</div>
+            <div class="col bg-danger">2</div>
+            <div class="col bg-warning">3</div>
+            <div class="col bg-info">4</div>
+            <div class="col bg-secondary">5</div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col bg-danger">1</div>
+            <div class="col-4 bg-warning">2</div>
+            <div class="col-5 bg-info">3</div>
+            <div class="col bg-primary">4</div>
+        </div>
+    </div>
 
     <h1 class="mt-5">2. Grid Responsiva</h1>
     <hr>
 
     <!-- Grid Responsiva -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-primary">1</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-danger">2</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-warning">3</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-info">4</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-success">5</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-secondary">6</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-danger">7</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-info">8</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-success">9</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-secondary">10</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-warning">11</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 colxl-1 bg-primary">12</div>
+        </div>
+    </div>
 
     <h1 class="mt-5">3. Quebra de Linha</h1>
     <hr>
 
     <!-- Quebra de Linha -->
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 bg-primary">1</div>
+            <div class="col-3 bg-danger">2</div>
+            <!-- a classe w-100 quebra a linha na grid -->
+            <div class="w-100"></div>
+            <div class="col-3 bg-warning">3</div>
+        </div>
+    </div>
     <h1 class="mt-5">4. Ordem</h1>
     <hr>
 
     <!-- Ordem -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- a classe order organiza as colunas pode ser usada do 1 ao 12 -> order-12 -->
+            <div class="col-4 bg-primary order-5">1</div>
+            <div class="col-4 bg-warning order-12">2</div>
+            <div class="col-4 bg-danger order-1">3</div>
+        </div>
+    </div>
 
     <h1 class="mt-5">5. Offset</h1>
     <hr>
 
     <!-- Offset -->
+    <div class="container-fluid">
+        <!-- a classe offset também suporta a adição das classes de responsividade podendo ser aplicada apenas em alguns tipos de tela sintaxe normal offset-3 sintaxe + responsividade offset-md-4 -->
+        <div class="row">
+            <div class="col-lg-3 offset-lg-6 bg-primary">1</div>
+            <div class="col-lg-4 offset-lg-3 bg-danger">2</div>
+            <div class="col-lg-5 offset-lg-1 bg-warning">3</div>
+        </div>
+    </div>
 
     <h1 class="mt-5">6. Alinhamento</h1>
     <hr>
 
     <!-- Alinhamento -->
+    <div class="container-fluid">
+        <div class="row h-300">
+            <div class="col-4 align-self-end bg-primary">1</div>
+            <div class="col-4 align-self-center bg-danger">2</div>
+            <div class="col-4 align-self-start bg-warning">3</div>
+        </div>
+    </div>
 </div>
 
 <style>
